@@ -42,10 +42,6 @@ const features: Array<FeatureItem> = [];
     <ul></ul>
 
 ---
-import { Image } from "src/images";
----
-<!-- Automatically fetches and downloads image -->
-a href="images/01.jpg" class="image fit">
-								<img src="images/01.jpg" title="" alt="" />
-	
-		
+import Image from 'astro-media'
+
+<Image src={import('01.jpg')}>
