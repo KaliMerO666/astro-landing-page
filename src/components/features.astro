@@ -1,3 +1,10 @@
+import { defineConfig } from "astro/config";
+import compress from "astro-compress";
+import preload from "astro-preload";
+
+export default defineConfig({
+  integrations: [preload(), compress()]
+});
 ---
 import { Icon } from "astro-icon";
 import { YouTube } from "@astro-community/astro-embed-youtube";
@@ -33,37 +40,12 @@ const features: Array<FeatureItem> = [];
       > (David Lynch)
     </Fragment>
     <ul></ul>
-</head>
-	<body>
+
+---
+import { Image } from "src/images";
+---
+<!-- Automatically fetches and downloads image -->
+<Image url="https://https://picaboo.netlify.app/images/fulls/01.jpg" />
 
 	
-					</header>
-
-					
-						
-							<a href="images01.jpg" class="image fit">
-								<img src="images01.jpg" title="" alt="" />
-							</a>
-						</article>
-							<a href="images/02.jpg" class="image fit">
-								<img src="images/02.jpg" title="" alt="" />
-							</a>
-							<a href="images/03.jpg" class="image fit">
-								<img src="images/03.jpg" title="" alt="" />
-							</a>
-						</article>
-							<a href="images/04.jpg" class="image fit">
-								<img src="images/04.jpg" title="" alt="" />
-							</a>
-						</article>
-					</div>
-
-				</div>
-			</section>
-</ul>
-				</nav>
-			</header>
-
-
-
-	</body>
+		
