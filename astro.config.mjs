@@ -1,4 +1,4 @@
-import { astroImageTools } from "astro-imagetools";
+
 import image from "@astrojs/image";
 import tailwind from "@astrojs/tailwind";
 import { defineConfig } from "astro/config";
