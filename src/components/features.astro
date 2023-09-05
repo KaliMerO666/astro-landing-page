@@ -42,7 +42,16 @@ const features: Array<FeatureItem> = [];
     <ul></ul>
 
 ---
-import media from "astro-media/integration";
-import Image from 'astro-media'
+import { Picture } from "astro-imagetools/components";
+---
 
-<Image src={import('images/01.jpg')}>
+<Picture
+  src="/src/images/01.jpg"
+  alt="A landscape image"
+  artDirectives={[
+    {
+      src: "/src/images/01.jpg",
+      media: "(orientation: potrait)",
+    },
+  ]}
+/>
