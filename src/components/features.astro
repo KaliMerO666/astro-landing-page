@@ -1,11 +1,7 @@
-import { defineConfig } from "astro/config";
-import compress from "astro-compress";
-import preload from "astro-preload";
 
-export default defineConfig({
-  integrations: [preload(), compress()]
-});
+
 ---
+import { Picture } from "@astrojs/image/components";
 import { Icon } from "astro-icon";
 import { YouTube } from "@astro-community/astro-embed-youtube";
 import ContentSection from "~/components/content-section.astro";
@@ -23,15 +19,13 @@ const features: Array<FeatureItem> = [];
       Brüsel</span
     >, also had to deal with <span class="text-primary"> ADHD</span>, I spent my
     life
-    <span class="text-primary"> trying</span> new things.
+    <span class="text-primary"> trying</span> things.
   </Fragment>
   <ul></ul>
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/6dY0hojRI3U?si=Tbf472hm7pJbIb_e" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 </ContentSection>
-
- 
   <ContentSection title="" id="features">
     <Fragment>
       <span class="text-primary"
@@ -41,17 +35,25 @@ const features: Array<FeatureItem> = [];
     </Fragment>
     <ul></ul>
 
----
-import { Picture } from "astro-imagetools/components";
----
 
-<Picture
-  src="/src/images/01.jpg"
-  alt="A landscape image"
-  artDirectives={[
-    {
-      src: "/images/01.jpg",
-      media: "(orientation: potrait)",
-    },
-  ]}
-/>
+<!DOCTYPE html>
+<html>
+<head>
+  <title</title>
+</head>
+<body>
+  <h1></h1>
+  <img src="images/01.jpg" alt="Texte alternatif">  <img src="images/02.jpg" alt="Texte alternatif">
+   <img src="images/04.jpg" alt="Texte alternatif">  <img src="images/03.jpg" alt="Texte alternatif">
+</body>
+</html>
+ 	<div class="container">
+			<div class="row">
+				<div class="container-fluid">
+					<div class="row">
+				<div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+
+
+
+
+
