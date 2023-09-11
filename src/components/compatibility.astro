@@ -3,6 +3,7 @@ import CompatibilityList from "~/components/compatibility-list.astro";
 import ContentSection from "~/components/content-section.astro";
 import type { CompatibilityItem } from "~/types";
 import { Image } from "astro:images";
+import { Icon } from "astro-icon";
 
 const frameworks: Array<CompatibilityItem> = [
   {
@@ -39,6 +40,11 @@ const frameworks: Array<CompatibilityItem> = [
 
 const platforms: Array<CompatibilityItem> = [
   {
+    title: "Book-O-Matics",
+    icon: "platforms/shop",
+    url: "https://bookomatic.hstn.me/",
+  },
+ {
     title: "Ko-Fi",
     icon: "platforms/kofi",
     url: "https://ko-fi.com/kalimero_666/",
@@ -59,14 +65,9 @@ const platforms: Array<CompatibilityItem> = [
     url: "https://tipeee.com/kalimero/",
   },
   {
-    title: "My Shop",
-    icon: "platforms/shop",
-    url: "https://bookomatic.hstn.me/",
-  },
-  {
     title: "Goodies",
     icon: "platforms/spreadshop",
-    url: "https://kalimero.spreadshop.fr",
+    url: "https://kalimero.myspreadshop.fr",
   },
 ];
 ---
@@ -82,7 +83,7 @@ const platforms: Array<CompatibilityItem> = [
     >
       Seasons</span
     > in Hell, stepped <span class="text-primary"> across</span>  the border,
-    came back on Earth @ summer 21
+    came back on Earth @ summer 21 as a
     <span class="text-primary"> born-dead</span>
     tweety.
   </Fragment>
@@ -102,7 +103,7 @@ const platforms: Array<CompatibilityItem> = [
   </Fragment>
   <CompatibilityList
     items={frameworks}
-    title="So-call SOCIALS"
+    title="So-SOCIALS"
    url="https://linktr.ee/kalimero"
   />    <span class="text-primary"> My nickname is</span> @kalimero_666
  <span
@@ -115,6 +116,10 @@ const platforms: Array<CompatibilityItem> = [
     url="https://linktr.ee/kalimero"
   />
     </ContentSection>
+
   </Fragment>
-<a href='https://rockghostsrock.digitalpress.blog' target='_blank'><img height='100' style='border:0px;height:100px;' src='src/icons/rgr.webp' border='0' alt='Visit my Ghost blog at digitalpress.blog' /></a>
+Check out my Ghost blog !
+<a href='https://rockghostsrock.digitalpress.blog' target='_blank'><img height='100' style='border:0px;height:100px;' src='src/icons/rgr.webp' border='0' alt='Visit my Ghost blog at rockghostsrock.digitalpress.blog' /></a>
+and visit my Porn-O-One :
+<a href='https://xxx19.digitalpress.blog' target='_blank'><img height='100' style='border:0px;height:100px;' src='src/icons/prngrfx.webp' border='0' alt='Visit my Ghost blog at xxx19.digitalpress.blog' /></a>
 </ContentSection>
