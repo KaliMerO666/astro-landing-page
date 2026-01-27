@@ -1,5 +1,3 @@
-
-
 ---
 import { Picture } from "@astrojs/image/components";
 import { Icon } from "astro-icon";
@@ -21,11 +19,37 @@ const features: Array<FeatureItem> = [];
     life
     <span class="text-primary"> trying</span> things.
   </Fragment>
+  
+  <!-- Instagram Feed Widget -->
+  <div class="instagram-feed-container my-8 w-full">
+    <div class="elfsight-app-a016ca7e-769b-4b42-ae3c-181b34b9836d" data-elfsight-app-lazy></div>
+  </div>
+  
   <script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script>
-  <ul></ul>
-<div class="elfsight-app-a016ca7e-769b-4b42-ae3c-181b34b9836d"></div>
 </ContentSection>
-  <ContentSection title="" id="features">
+
+<style>
+  .instagram-feed-container {
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  /* Responsive adjustments */
+  @media (min-width: 768px) {
+    .instagram-feed-container {
+      max-width: 90%;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .instagram-feed-container {
+      max-width: 85%;
+    }
+  }
+</style>
+
+<ContentSection title="" id="features">
     <Fragment>
       <span class="text-primary"
         >"Everything I learned in my life, I've learned it because I decided to
@@ -33,10 +57,37 @@ const features: Array<FeatureItem> = [];
       > (David Lynch)
     </Fragment>
 
-    <ul></ul>
-<iframe title="Kalimero Contre Kalimero" width="560" height="315" src="https://dalek.zone/videos/embed/04e164c9-0f8d-482f-81f3-783cc10ae833" frameborder="0" allowfullscreen="" sandbox="allow-same-origin allow-scripts allow-popups"></iframe>
+    <!-- Peertube Video -->
+    <div class="video-container my-8">
+      <iframe 
+        title="Kalimero Contre Kalimero" 
+        src="https://dalek.zone/videos/embed/04e164c9-0f8d-482f-81f3-783cc10ae833" 
+        frameborder="0" 
+        allowfullscreen 
+        sandbox="allow-same-origin allow-scripts allow-popups"
+        class="video-iframe"
+      ></iframe>
+    </div>
+</ContentSection>
 
-
-
-
-
+<style>
+  .video-container {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+  }
+  
+  .video-iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+</style>
