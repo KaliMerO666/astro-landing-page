@@ -1,49 +1,80 @@
 ---
-import { Icon } from "astro-icon";
-import HeroImage from "~/components/hero-image.astro";
-import type { FooterLink } from "~/types";
+import "@fontsource-variable/inter";
+import { defineConfig } from "astro/config";
+import compress from "astro-compress";
+import preload from "astro-preload";
+import Compatibility from "~/components/compatibility.astro";
+import Features from "~/components/features.astro";
+import Youtube from "~/components/youtube.astro";
+import Footer from "~/components/footer.astro";
+import Header from "~/components/header.astro";
+import Intro from "~/components/intro.astro";
+import Showcase from "~/components/showcase.astro";
+import Splash from "~/components/splash.astro";
+import "~/styles/index.css";
 
-
-const links: Array<FooterLink> = [
-
-  {
-    url: "https://www.kalimero.rocks",
-    description: "Kalimero's official website",
-    icon: "mdi:home",
-  },
-   {
-    url: "https://https://instagram.com/kalimero_666/",
-    description: "Instagram",
-    icon: "fa-brands:instagram",
-  },
-  {
-    url: "https://github.com/kalimerO666/",
-    description: "Github",
-    icon: "fa-brands:github",
-  },
-];
+const { generator, site } = Astro;
+const image = new URL("social.jpg", site);
+const description = "Kalimero Rocks";
 ---
 
-<footer class="relative flex h-64 items-center justify-center">
-  <div class="absolute inset-0 overflow-hidden opacity-40">
-    <HeroImage />
-  </div>
+<!DOCTYPE html>
+<html lang="en" class="h-full motion-safe:scroll-smooth" data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta name="generator" content={generator} />
 
+    <title>Station-Service</title>
+    <meta name="description" content={description} />
 
-  <ul class="relative grid grid-cols-2 gap-4 sm:grid-cols-4">
-    {
-      links.map((link) => (
-        <li>
-          <a
-            class="flex h-16 w-16 items-center justify-center rounded-full border-2 border-current p-4"
-            href={link.url}
-          >
-            <span class="sr-only">{link.description}</span>
-            <Icon class="h-full" name={link.icon} />
-          </a>
-        </li>
-      ))
-    }
-  </ul>
+    <!-- social media -->
+    <meta property="og:title" content="Kalimero Rocks" />
+    <meta property="og:type" content="website" />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={image} />
+    <meta property="og:url" content={site} />
+    <meta name="twitter:card" content="summary_large_image" />
 
-</footer>
+    <!-- initialize theme -->
+    <script is:inline>
+      const themeSaved = localStorage.getItem("theme");
+
+      if (themeSaved) {
+        document.documentElement.dataset.theme = themeSaved;
+      } else {
+        const prefersDark = window.matchMedia(
+          "(prefers-color-scheme: dark)"
+        ).matches;
+        document.documentElement.dataset.theme = prefersDark ? "dark" : "light";
+      }
+
+      window
+        .matchMedia("(prefers-color-scheme: dark)")
+        .addEventListener("change", (event) => {
+          if (!localStorage.getItem("theme")) {
+            document.documentElement.dataset.theme = event.matches
+              ? "dark"
+              : "light";
+          }
+        });
+    </script>
+  </head>
+  <body
+    class="h-full overflow-x-hidden bg-default text-default text-base selection:bg-secondary selection:text-white"
+  >
+    <Header />
+    <Splash />
+    <div class="space-y-24 px-8 py-32">
+      <Intro />
+      <Features />
+      <Compatibility />
+      <Showcase />
+    </div>
+    <Footer />
+  </body>
+</html>
+<1>
+
+Ceci est la dernière page
