@@ -1,0 +1,60 @@
+---
+// Instagram Carousel Component - Replace the Elfsight widget with this
+// Place your 12 Instagram images in /public/instagram/ folder
+// Name them: insta-1.jpg, insta-2.jpg, etc.
+
+const images = [
+  { id: 1, alt: "Kalimero artwork 1" },
+  { id: 2, alt: "Kalimero artwork 2" },
+  { id: 3, alt: "Kalimero artwork 3" },
+  { id: 4, alt: "Kalimero artwork 4" },
+  { id: 5, alt: "Kalimero artwork 5" },
+  { id: 6, alt: "Kalimero artwork 6" },
+  { id: 7, alt: "Kalimero artwork 7" },
+  { id: 8, alt: "Kalimero artwork 8" },
+  { id: 9, alt: "Kalimero artwork 9" },
+  { id: 10, alt: "Kalimero artwork 10" },
+  { id: 11, alt: "Kalimero artwork 11" },
+  { id: 12, alt: "Kalimero artwork 12" },
+];
+---
+
+<div class="instagram-carousel-container">
+  <div class="carousel-header">
+    <h3 class="carousel-title">Visual Chaos</h3>
+    <a 
+      href="https://instagram.com/kalimero_____666/" 
+      target="_blank"
+      rel="noopener noreferrer"
+      class="instagram-link"
+    >
+      @kalimero_____666
+    </a>
+  </div>
+
+  <div class="carousel-wrapper">
+    <button class="carousel-button prev" aria-label="Previous">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+        <polyline points="15 18 9 12 15 6"></polyline>
+      </svg>
+    </button>
+
+    <div class="carousel-track-container">
+      <div class="carousel-track">
+        {images.map((img) => (
+          <div class="carousel-slide">
+            <div class="image-wrapper">
+              <img 
+                src={`/instagram/insta-${img.id}.jpg`}
+                alt={img.alt}
+                loading="lazy"
+                class="carousel-image"
+              />
+              <div class="image-overlay">
+                <span class="image-number">{String(img.id).padStart(2, '0')}</span>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
