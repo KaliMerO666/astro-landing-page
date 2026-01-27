@@ -1,40 +1,97 @@
-# Astro Landing Page
+# ðŸŽ¨ Fichiers corrigÃ©s pour Station-Service
 
-[![Built with Astro](https://astro.badg.es/v1/built-with-astro.svg)](https://astro.build)
+## ðŸ“¦ Contenu de l'archive
 
-> An Astro + Tailwind CSS example/template for landing pages.
+Cette archive contient 7 fichiers Astro corrigÃ©s pour votre site kalimero.rocks :
 
-![Screenshots of Astro Landing Page](screenshots.jpg)
+### Fichiers Ã  placer dans `src/pages/` :
+- **index.astro** - Page principale
 
-## Features
+### Fichiers Ã  placer dans `src/components/` :
+- **compatibility.astro** - Section socials et e-conomix
+- **features.astro** - Section Picaboo avec widget Instagram
+- **footer.astro** - Pied de page
+- **header.astro** - En-tÃªte avec navigation
+- **intro.astro** - Section d'introduction
+- **splash.astro** - Hero section avec image du personnage
 
-- 💨 Tailwind CSS for styling
-- 🎨 Themeable
-  - CSS variables are defined in `src/styles/theme.css` and mapped to Tailwind classes (`tailwind.config.cjs`)
-- 🌙 Dark mode
-- 📱 Responsive (layout, images, typography)
-- ♿ Accessible (as measured by https://web.dev/measure/)
-- 🔎 SEO-enabled (as measured by https://web.dev/measure/)
-- 🔗 Open Graph tags for social media sharing
-- 💅 [Prettier](https://prettier.io/) setup for both [Astro](https://github.com/withastro/prettier-plugin-astro) and [Tailwind](https://github.com/tailwindlabs/prettier-plugin-tailwindcss)
+## âœ… Corrections effectuÃ©es
 
-## Commands
+### 1. **Liens sociaux mis Ã  jour**
+- âœ… Instagram : `kalimero_666` â†’ `kalimero_____666` (5 underscores)
+- âœ… Facebook : `kalimerox19` â†’ `Kalimero.officiel`
 
-| Command                | Action                                            |
-| :--------------------- | :------------------------------------------------ |
-| `npm install`          | Install dependencies                              |
-| `npm run dev`          | Start local dev server at `localhost:3000`        |
-| `npm run build`        | Build your production site to `./dist/`           |
-| `npm run preview`      | Preview your build locally, before deploying      |
-| `npm run astro ...`    | Run CLI commands like `astro add`, `astro check`  |
-| `npm run astro --help` | Get help using the Astro CLI                      |
-| `npm run format`       | Format code with [Prettier](https://prettier.io/) |
-| `npm run clean`        | Remove `node_modules` and build output            |
+### 2. **Erreurs HTML corrigÃ©es**
+- âœ… Titre : `>>Station-Service"` â†’ `Station-Service`
+- âœ… Lien Instagram footer : double `https://` supprimÃ©
+- âœ… Lien Rock Ghost Rock : `/https://` â†’ `https://`
+- âœ… Balises fermantes manquantes ajoutÃ©es
+- âœ… Structure HTML nettoyÃ©e
 
-## Credits
+### 3. **Widget Instagram amÃ©liorÃ©**
+- âœ… Ajout de lazy loading pour performance
+- âœ… Design responsive (mobile/tablette/desktop)
+- âœ… Meilleur espacement et centrage
 
-- astronaut image
-  - source: https://github.com/withastro/astro-og-image; note: this repo is not available anymore
-- moon image
-  - source: https://unsplash.com/@nasa
-- other than that, a lot of material (showcase data, copy) was taken from official Astro sources, in particular https://astro.build/blog/introducing-astro/ and https://github.com/withastro/astro.build
+### 4. **Image personnage mobile**
+- âœ… Positionnement corrigÃ© sur smartphone
+- âœ… Alignement en bas au lieu d'en haut
+- âœ… Marge ajoutÃ©e pour Ã©viter collision avec header
+
+### 5. **VidÃ©o Peertube responsive**
+- âœ… Ratio 16:9 maintenu sur tous Ã©crans
+- âœ… S'adapte automatiquement Ã  la taille d'Ã©cran
+
+### 6. **Header responsive**
+- âœ… Padding adaptatif : `px-4` sur mobile, `px-9` sur desktop
+
+## ðŸš€ Installation
+
+### Sur GitHub :
+1. Allez sur https://github.com/Kalimero-Von-Bulow/Station-Service
+2. Pour chaque fichier :
+   - Naviguez vers le fichier (ex: `src/pages/index.astro`)
+   - Cliquez sur l'icÃ´ne crayon (Edit)
+   - Remplacez le contenu par celui du fichier correspondant
+   - Cliquez sur "Commit changes"
+
+### En local :
+1. DÃ©compressez l'archive
+2. Copiez les fichiers vers votre projet :
+   ```bash
+   cp index.astro src/pages/
+   cp *.astro src/components/
+   ```
+3. Commitez et pushez :
+   ```bash
+   git add .
+   git commit -m "Fix Instagram/Facebook links, improve responsive design"
+   git push
+   ```
+
+## ðŸ“‹ Ordre de remplacement recommandÃ©
+
+1. **index.astro** (corrige le titre)
+2. **footer.astro** (corrige Instagram footer)
+3. **compatibility.astro** (met Ã  jour tous les liens sociaux)
+4. **splash.astro** (corrige l'image mobile)
+5. **header.astro** (amÃ©liore le responsive)
+6. **features.astro** (amÃ©liore le widget Instagram)
+7. **intro.astro** (corrige balise HTML)
+
+## ðŸŽ¯ RÃ©sultat attendu
+
+AprÃ¨s remplacement, votre site aura :
+- âœ… Tous vos liens sociaux Ã  jour
+- âœ… Aucune erreur HTML
+- âœ… Meilleure expÃ©rience mobile
+- âœ… Widget Instagram optimisÃ©
+- âœ… Code plus propre et maintenable
+
+## ðŸ“§ Support
+
+Pour toute question, rÃ©fÃ©rez-vous aux commentaires dans les fichiers ou consultez la documentation Astro : https://docs.astro.build
+
+---
+
+*GÃ©nÃ©rÃ© le 27 janvier 2026 par Claude*
