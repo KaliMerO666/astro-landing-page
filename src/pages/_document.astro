@@ -1,1 +1,25 @@
+---
+import '@fontsource-variable/inter';
+const {
+  title = 'Astro Landing Page',
+  description = 'Landing page rapide, moderne et optimisée avec Astro.',
+  lang = 'fr',
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang={lang}>
+  <head>
+    <!-- Meta essentielles -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#0f172a" />
+
+    <!-- Titre -->
+    <title>{title}</title>
+
+    <!-- SEO -->
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href={Astro.url.href} />
 
