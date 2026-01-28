@@ -7,8 +7,10 @@
     "build": "astro build",
     "preview": "astro preview"
   },
-  "dependencies": {
-    "astro": "^3.9.0"
+"dependencies": {
+  "astro": "5.16.15"
+}
+
   },
   "devDependencies": {
     "vite-plugin-compression": "^1.1.0"
