@@ -1,0 +1,27 @@
+---
+import Document from '../pages/_document.astro';
+
+const {
+  title,
+  description,
+  lang = 'fr',
+} = Astro.props;
+---
+
+<Document title={title} description={description} lang={lang}>
+  <header class="sticky top-0 z-40 bg-slate-950/80 backdrop-blur">
+    <nav class="mx-auto max-w-7xl px-6 py-4 flex items-center justify-between">
+      <a href="/" class="font-bold text-lg">Astro</a>
+      <a href="#contact" class="text-sm opacity-80 hover:opacity-100">
+        Contact
+      </a>
+    </nav>
+  </header>
+
+  <slot />
+
+  <footer class="mt-24 border-t border-white/10 py-8 text-center text-sm opacity-70">
+    © {new Date().getFullYear()} — Tous droits réservés
+  </footer>
+</Document>
+

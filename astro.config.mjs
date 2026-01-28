@@ -1,20 +1,15 @@
+import { defineConfig } from 'astro/config';
+import compression from 'vite-plugin-compression';
 
-import image from "@astrojs/image";
-import tailwind from "@astrojs/tailwind";
-import { defineConfig } from "astro/config";
+// https://docs.astro.build/fr/reference/configuration-reference/
 
-// https://astro.build/config
 export default defineConfig({
-  site: "https://kalimeroland.vercel.app/",
-  integrations: [
-    tailwind(),
-    image({
-      serviceEntryPoint: "@astrojs/image/sharp",
-    }),
-  ],
+  // URL de ton site (optionnel, mais utile pour Netlify)
+  // site: 'https://ton-domaine.netlify.app',
+
   vite: {
-    ssr: {
-      external: ["svgo"],
-    },
-  },
+    plugins: [
+      compression() // compresse le build (gzip)
+    ]
+  }
 });

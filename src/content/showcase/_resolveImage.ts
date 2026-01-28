@@ -1,22 +1,15 @@
-// source: https://github.com/withastro/astro.build/blob/a30f075b315e20f44801cd454a8f915d0b1f8ee1/src/content/showcase/_resolveImage.ts
+import path from "node:path";
+import { glob } from "astro/loaders";
+import type { ImageMetadata } from "astro";
 
-import type { ImageMetadata } from "@astrojs/image/dist/vite-plugin-astro-image.js";
-import type { CollectionEntry } from "astro:content";
+export default async function resolveImage(image: string) {
+  const imageGlob: Record<string, () => Promise<{ default: ImageMetadata }>> =
+    import.meta.glob("/src/assets/**/*.{jpeg,jpg,png,gif}");
 
-const allImages = import.meta.glob<{ default: ImageMetadata }>(
-  "/src/content/showcase/_images/*.{png,jpg,jpeg,webp}",
-);
-
-export async function resolveImage(entry: CollectionEntry<"showcase">) {
-  const src = entry.data.image;
-
-  if (!(src in allImages)) {
+  if (!imageGlob[image])
     throw new Error(
-      `[showcase] Image for "${entry.data.title}" not found! Provided: "${src}", is there a typo?`,
+      `"${image}" does not exist in glob: "/src/assets/**/*.{jpeg,jpg,png,gif}"`
     );
-  }
 
-  const { default: image } = await allImages[src]();
-
-  return image;
+  return await imageGlob[image]().then((m) => m.default);
 }

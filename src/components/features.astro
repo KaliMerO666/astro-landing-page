@@ -1,8 +1,9 @@
 ---
-import { Picture } from "@astrojs/image/components";
-import { Icon } from "astro-icon";
-import { YouTube } from "@astro-community/astro-embed-youtube";
+import { Picture } from "astro:assets";
+/components
 import ContentSection from "~/components/content-section.astro";
+import InstagramCarousel from "~/components/instagram-carousel.astro";
+
 
 const features: Array<FeatureItem> = [];
 ---
@@ -20,12 +21,8 @@ const features: Array<FeatureItem> = [];
     <span class="text-primary"> trying</span> things.
   </Fragment>
   
-  <!-- Instagram Feed Widget -->
-  <div class="instagram-feed-container my-8 w-full">
-    <div class="elfsight-app-a016ca7e-769b-4b42-ae3c-181b34b9836d" data-elfsight-app-lazy></div>
-  </div>
-  
-  <script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script>
+  <!-- Instagram Carousel -->
+<InstagramCarousel />
 </ContentSection>
 
 <style>
