@@ -1,6 +1,6 @@
 ---
-// Configuration Astro
 const title = "Kalimero - Portfolio";
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
 <!DOCTYPE html>
@@ -9,6 +9,7 @@ const title = "Kalimero - Portfolio";
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{title}</title>
+    <link rel="canonical" href={canonicalURL} />
     <style>
         * {
             margin: 0;
@@ -421,7 +422,7 @@ const title = "Kalimero - Portfolio";
         </ul>
     </footer>
 
-    <script>
+    <script is:inline>
         function toggleTheme() {
             document.body.style.filter = document.body.style.filter === 'invert(1) hue-rotate(180deg)' ? '' : 'invert(1) hue-rotate(180deg)';
         }
