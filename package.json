@@ -9,6 +9,9 @@
   },
   "dependencies": {
     "astro": "5.16.15"
+    "@fontsource-variable/inter": "^5.0.0",
+  
+
   },
   "devDependencies": {
     "vite-plugin-compression": "^0.5.1"
