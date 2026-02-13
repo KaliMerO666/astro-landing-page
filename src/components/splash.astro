@@ -1,6 +1,6 @@
 ---
-import { Picture } from "astro:assets";
-/components
+import { Picture } from "@astrojs/image/components";
+import { Icon } from "astro-icon";
 import astronautImage from "~/assets/moidesert01.png";
 import HeroImage from "~/components/hero-image.astro";
 import Starfield from "~/components/starfield.astro";
@@ -35,6 +35,48 @@ const sizes = "(min-width: 640px) 42vw, 67vw";
 
 <noscript>
   <style>
+    #splash-bg-fallback {
+      display: block;
+    }
+  </style>
+</noscript>
+
+<style>
+  @keyframes float {
+    0% {
+      transform: translate3d(0, 0, 0);
+    }
+
+    100% {
+      transform: translate3d(0, 30px, 0);
+    }
+  }
+
+  #astronaut {
+    animation: float linear 2.5s infinite alternate;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    #astronaut {
+      @apply animate-none;
+    }
+
+    :global(#starfield) {
+      @apply hidden;
+    }
+
+    #splash-bg-fallback {
+      @apply block;
+    }
+  }
+  
+  /* AmĆ©lioration du positionnement mobile */
+  @media (max-width: 639px) {
+    #astronaut {
+      margin-bottom: 2rem;
+    }
+  }
+</style>  <style>
     #splash-bg-fallback {
       display: block;
     }
