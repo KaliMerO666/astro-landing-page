@@ -1,40 +1,675 @@
 ---
 const title = "Kalimero - Portfolio";
-const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://astro-landing-page-theta.vercel.app');
+
+// Liste des 12 images Instagram
+const carouselImages = [
+  { src: '/instagram/1.jpg', title: 'Instagram Post 1', caption: 'Creative exploration' },
+  { src: '/instagram/2.jpg', title: 'Instagram Post 2', caption: 'Artistic vision' },
+  { src: '/instagram/3.jpg', title: 'Instagram Post 3', caption: 'Underground comics' },
+  { src: '/instagram/4.jpg', title: 'Instagram Post 4', caption: 'Wild at Art' },
+  { src: '/instagram/5.jpg', title: 'Instagram Post 5', caption: 'Post-modern style' },
+  { src: '/instagram/6.jpg', title: 'Instagram Post 6', caption: 'Visual storytelling' },
+  { src: '/instagram/7.jpg', title: 'Instagram Post 7', caption: 'Graphic experiments' },
+  { src: '/instagram/8.jpg', title: 'Instagram Post 8', caption: 'Creative journey' },
+  { src: '/instagram/9.jpg', title: 'Instagram Post 9', caption: 'Artistic expressions' },
+  { src: '/instagram/10.jpg', title: 'Instagram Post 10', caption: 'Comic art' },
+  { src: '/instagram/11.jpg', title: 'Instagram Post 11', caption: 'Digital creations' },
+  { src: '/instagram/12.jpg', title: 'Instagram Post 12', caption: 'Latest works' }
+];
 ---
 
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en" class="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{title}</title>
     <link rel="canonical" href={canonicalURL} />
     <style>
+        :root {
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #1a1a1a;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0a0;
+            --neon-green: #39ff14;
+            --neon-pink: #ff10f0;
+            --neon-green-glow: rgba(57, 255, 20, 0.5);
+            --neon-pink-glow: rgba(255, 16, 240, 0.5);
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
             line-height: 1.6;
-            color: #333;
-            background-color: #f5f5f5;
         }
-        
+
+        /* Header */
         header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
+            background-color: var(--bg-secondary);
             padding: 1rem 2rem;
             position: sticky;
             top: 0;
             z-index: 100;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-bottom: 2px solid var(--neon-green);
+            box-shadow: 0 0 20px var(--neon-green-glow);
         }
-        
+
         .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            background: linear-gradient(90deg, var(--neon-green), var(--neon-pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+            transition: all 0.3s;
+            text-shadow: 0 0 10px var(--neon-green-glow);
+        }
+
+        .logo:hover {
+            filter: brightness(1.3);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: all 0.3s;
+            font-size: 0.9rem;
+            position: relative;
+        }
+
+        nav a:hover {
+            color: var(--neon-pink);
+            text-shadow: 0 0 10px var(--neon-pink-glow);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--neon-green), var(--neon-pink));
+            transition: width 0.3s;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .theme-toggle {
+            background: linear-gradient(135deg, var(--neon-green), var(--neon-pink));
+            border: none;
+            color: #000;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.9rem;
+            font-weight: bold;
+            box-shadow: 0 0 20px var(--neon-pink-glow);
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 30px var(--neon-green-glow), 0 0 30px var(--neon-pink-glow);
+        }
+
+        /* Hero Section */
+        .hero {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--neon-green), var(--neon-pink), var(--neon-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: neon-pulse 2s ease-in-out infinite;
+            text-shadow: 0 0 30px var(--neon-green-glow);
+        }
+
+        @keyframes neon-pulse {
+            0%, 100% { filter: brightness(1); }
+            50% { filter: brightness(1.3); }
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        /* Carousel Section */
+        .carousel-section {
+            max-width: 1400px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+
+        .carousel-section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            background: linear-gradient(90deg, var(--neon-pink), var(--neon-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .carousel-container {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .carousel {
+            overflow: hidden;
+            border-radius: 15px;
+            background: var(--bg-secondary);
+            position: relative;
+            box-shadow: 0 0 40px var(--neon-green-glow), 0 0 60px var(--neon-pink-glow);
+            border: 2px solid var(--neon-green);
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            position: relative;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: 600px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .carousel-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.95));
+            padding: 3rem 2rem 2rem;
+            color: white;
+        }
+
+        .carousel-caption h3 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            color: var(--neon-green);
+            text-shadow: 0 0 10px var(--neon-green-glow);
+        }
+
+        .carousel-caption p {
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.8);
+        }
+
+        .carousel-buttons {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 1rem;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        .carousel-btn {
+            background: linear-gradient(135deg, var(--neon-green), var(--neon-pink));
+            border: none;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            pointer-events: all;
+            transition: all 0.3s;
+            box-shadow: 0 0 20px var(--neon-pink-glow);
+            color: #000;
+            font-weight: bold;
+        }
+
+        .carousel-btn:hover {
+            transform: scale(1.2);
+            box-shadow: 0 0 40px var(--neon-green-glow), 0 0 40px var(--neon-pink-glow);
+        }
+
+        .carousel-indicators {
+            display: flex;
+            justify-content: center;
+            gap: 0.8rem;
+            padding: 1.5rem 0;
+            flex-wrap: wrap;
+        }
+
+        .carousel-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #444;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .carousel-dot:hover {
+            background: var(--neon-pink);
+            box-shadow: 0 0 15px var(--neon-pink-glow);
+            transform: scale(1.2);
+        }
+
+        .carousel-dot.active {
+            background: var(--neon-green);
+            width: 40px;
+            border-radius: 6px;
+            box-shadow: 0 0 20px var(--neon-green-glow);
+        }
+
+        .carousel-counter {
+            text-align: center;
+            color: var(--neon-pink);
+            font-size: 1rem;
+            margin-top: 0.5rem;
+            font-weight: bold;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Sections */
+        section {
+            background: var(--bg-secondary);
+            margin: 3rem 0;
+            padding: 3rem 2rem;
+            border-radius: 15px;
+            border: 2px solid transparent;
+            background-image: 
+                linear-gradient(var(--bg-secondary), var(--bg-secondary)),
+                linear-gradient(90deg, var(--neon-green), var(--neon-pink));
+            background-origin: border-box;
+            background-clip: padding-box, border-box;
+            box-shadow: 0 0 30px rgba(57, 255, 20, 0.1);
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            background: linear-gradient(90deg, var(--neon-green), var(--neon-pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--neon-green), var(--neon-pink));
+            box-shadow: 0 0 10px var(--neon-green-glow);
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            margin: 2rem 0 1rem;
+            color: var(--neon-pink);
+        }
+
+        .quote {
+            font-style: italic;
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            border-left: 4px solid var(--neon-green);
+            padding-left: 2rem;
+            margin: 2rem 0;
+            box-shadow: -5px 0 15px var(--neon-green-glow);
+        }
+
+        /* Grids */
+        .social-grid, .commerce-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .social-grid a, .commerce-grid a {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem;
+            background: var(--bg-primary);
+            border-radius: 10px;
+            text-decoration: none;
+            color: var(--text-primary);
+            border: 2px solid #333;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .social-grid a::before, .commerce-grid a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, var(--neon-green-glow), transparent);
+            transition: left 0.5s;
+        }
+
+        .social-grid a:hover::before, .commerce-grid a:hover::before {
+            left: 100%;
+        }
+
+        .social-grid a:hover, .commerce-grid a:hover {
+            border-color: var(--neon-green);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 25px var(--neon-green-glow), 0 5px 25px var(--neon-pink-glow);
+            color: var(--neon-green);
+        }
+
+        /* Showcase Grid */
+        .showcase-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .showcase-item {
+            background: var(--bg-primary);
+            border-radius: 15px;
+            overflow: hidden;
+            border: 2px solid #333;
+            transition: all 0.3s;
+            text-decoration: none;
+            color: inherit;
+            position: relative;
+        }
+
+        .showcase-item::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, var(--neon-green-glow), var(--neon-pink-glow));
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
+        }
+
+        .showcase-item:hover::after {
+            opacity: 0.1;
+        }
+
+        .showcase-item:hover {
+            transform: translateY(-10px);
+            border-color: var(--neon-pink);
+            box-shadow: 0 10px 40px var(--neon-green-glow), 0 10px 40px var(--neon-pink-glow);
+        }
+
+        .showcase-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .showcase-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .showcase-content {
+            padding: 1.5rem;
+        }
+
+        .showcase-content h3 {
+            margin-top: 0;
+            background: linear-gradient(90deg, var(--neon-green), var(--neon-pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .showcase-content p {
+            color: var(--text-secondary);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+            background: linear-gradient(135deg, #000, var(--bg-secondary));
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, var(--neon-green-glow) 0%, transparent 70%);
+            animation: rotate 10s linear infinite;
+        }
+
+        .cta-section::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, var(--neon-pink-glow) 0%, transparent 70%);
+            animation: rotate 15s linear infinite reverse;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .cta-section h2 {
+            color: var(--neon-green);
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-section h2::after {
+            background: var(--neon-pink);
+        }
+
+        .cta-section p {
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, var(--neon-green), var(--neon-pink));
+            color: #000;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: all 0.3s;
+            box-shadow: 0 0 20px var(--neon-green-glow);
+        }
+
+        .btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 40px var(--neon-green-glow), 0 0 40px var(--neon-pink-glow);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--bg-secondary);
+            color: var(--text-secondary);
+            padding: 2rem;
+            text-align: center;
+            border-top: 2px solid var(--neon-pink);
+            box-shadow: 0 -5px 30px var(--neon-pink-glow);
+            margin-top: 4rem;
+        }
+
+        footer a {
+            color: var(--neon-green);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        footer a:hover {
+            color: var(--neon-pink);
+            text-shadow: 0 0 10px var(--neon-pink-glow);
+        }
+
+        footer ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+
+        /* Light theme */
+        body.light {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f5f5f5;
+            --text-primary: #0a0a0a;
+            --text-secondary: #666666;
+        }
+
+        body.light header,
+        body.light footer {
+            border-color: var(--neon-pink);
+        }
+
+        body.light section {
+            border-color: var(--neon-green);
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .carousel-slide img {
+                height: 400px;
+            }
+
+            .carousel-btn {
+                width: 45px;
+                height: 45px;
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <a href="#" class="logo"># Kalimero</a>
+            <nav>
+                <ul>
+                    <li><a href="https://yamwhatyam.vercel.app">Yam What Yam</a></li>
+                    <li><a href="https://picaboo.netlify.app">Picaboo</a></li>
+                    <li><a href="https://nest-in-pace.netlify.app/">Nest In Pace</a></li>
+                    <li><a href="https://rockghostsrock.digitalpress.blog/">Rock, Ghost, Rock!</a></li>
+                    <li><a href="http://kalimero.lovestoblog.com/">Chronic</a></li>
+                    <li><a href="https://sxssxxsssxxx.blogspot.com/">Rayon X</a></li>
+                    <li><a href="https://xxx19.digitalpress.blog">PRNGRFX</a></li>
+                    <li><a href="https://bookomatic.hstn.me">Shop</a></li>
+                    <li><a href="https://kalimero.myspreadshop.fr/">Goodies</a></li>
+                </ul>
+            </nav>
+            <button class="theme-toggle" onclick="toggleTheme()">☀️ Light</button>
+        </div>
+    </header>
+
+    <div class="hero">
+        <h1>Hi There!</h1>
+        <p>Post-modern, wild at Art, underground comic maker</p>
+    </div>
+
+    <!-- Carousel avec 12 images Instagram -->
+    <div class="carousel-section">
+        <h2>📸 Instagram Gallery</h2>
+        <div class="carousel-container">
+            <div class="carousel">
+                <div         .header-content {
             max-width: 1200px;
             margin: 0 auto;
             display: flex;
