@@ -1,40 +1,173 @@
 ---
-const title = "Kalimero - Portfolio";
+const title = "Kalimero";
 const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://astro-landing-page-theta.vercel.app');
-
-// Liste des 12 images Instagram
-const carouselImages = [
-  { src: '/instagram/1.jpg', title: 'Instagram Post 1', caption: 'Creative exploration' },
-  { src: '/instagram/2.jpg', title: 'Instagram Post 2', caption: 'Artistic vision' },
-  { src: '/instagram/3.jpg', title: 'Instagram Post 3', caption: 'Underground comics' },
-  { src: '/instagram/4.jpg', title: 'Instagram Post 4', caption: 'Wild at Art' },
-  { src: '/instagram/5.jpg', title: 'Instagram Post 5', caption: 'Post-modern style' },
-  { src: '/instagram/6.jpg', title: 'Instagram Post 6', caption: 'Visual storytelling' },
-  { src: '/instagram/7.jpg', title: 'Instagram Post 7', caption: 'Graphic experiments' },
-  { src: '/instagram/8.jpg', title: 'Instagram Post 8', caption: 'Creative journey' },
-  { src: '/instagram/9.jpg', title: 'Instagram Post 9', caption: 'Artistic expressions' },
-  { src: '/instagram/10.jpg', title: 'Instagram Post 10', caption: 'Comic art' },
-  { src: '/instagram/11.jpg', title: 'Instagram Post 11', caption: 'Digital creations' },
-  { src: '/instagram/12.jpg', title: 'Instagram Post 12', caption: 'Latest works' }
-];
 ---
 
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{title}</title>
     <link rel="canonical" href={canonicalURL} />
-    <style>
-        :root {
-            --bg-primary: #0a0a0a;
-            --bg-secondary: #1a1a1a;
-            --text-primary: #ffffff;
-            --text-secondary: #a0a0a0;
-            --neon-green: #39ff14;
-            --neon-pink: #ff10f0;
-            --neon-green-glow: rgba(57, 255, 20, 0.5);
+</head>
+<body>
+    <header>
+        <h1><a href="https://kalimero.rocks"># Kalimero</a></h1>
+        <nav>
+            <ul>
+                <li><a href="https://yamwhatyam.vercel.app">Yam What Yam</a></li>
+                <li><a href="https://picaboo.netlify.app">Picaboo</a></li>
+                <li><a href="https://nest-in-pace.netlify.app/">Nest In Pace</a></li>
+                <li><a href="https://rockghostsrock.digitalpress.blog/">Rock, Ghost, Rock !</a></li>
+                <li><a href="http://kalimero.lovestoblog.com/">Chronic</a></li>
+                <li><a href="https://sxssxxsssxxx.blogspot.com/">Rayon X</a></li>
+                <li><a href="https://xxx19.digitalpress.blog">PRNGRFX</a></li>
+                <li><a href="https://bookomatic.hstn.me">Shop</a></li>
+                <li><a href="https://kalimero.myspreadshop.fr/">Goodies</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <img src="/_astro/desert.b38c3bea_2vjVO1.jpg" alt="The arizona desert">
+        <img src="/_astro/moidesert01.48362860_hWF5m.png" alt="A floating cow-boy wearing a snake skin jacket">
+
+        <h2>Hi There !</h2>
+        <p>
+            Once upon a time my name was  Quéméré, and I used to be a post-modern, wild at
+            Art,
+             undergrrround comiXmaker.
+        </p>
+        <p>
+            <a href="https://yamwhatyam.vercel.app/">Yam What Yam</a>
+            <a href="https://nest-in-pace.netlify.app/">Nest In Pace, Quéméré</a>
+        </p>
+
+        <h2>Picaboo</h2>
+        <p>
+            Since I got my degree at the famous 
+            ERG, Ecole de Recherche Graphique in 
+            Brüsel, also had to deal with  ADHD, I spent my
+            life
+             trying things.
+        </p>
+
+        <h2></h2>
+        <blockquote>
+            "Everything I learned in my life, I've learned it because I decided to
+            try something new" (David Lynch)
+        </blockquote>
+
+        <h2></h2>
+
+        <h2>From Hell, With Love</h2>
+        <p>
+            With that  behaviour I've spent a few
+            Seasons in Hell, stepped  across the border,
+            came back on Earth @ summer 21 as a
+             born-dead
+            tweety.
+        </p>
+
+        <h2>Ecce Kalimero</h2>
+
+        <h3>So-SOCIALS</h3>
+        <ul>
+            <li><a href="https://instagram.com/kalimero_666/">Instagram</a></li>
+            <li><a href="https://facebook.com/kalimerox19/">Facebook</a></li>
+            <li><a href="https://www.youtube.com/@kalimero_Von_Bulow/">Youtube</a></li>
+            <li><a href="https://metapixl.com/kalimero">Pixelfed</a></li>
+            <li><a href="https://dalek.zone/a/kalimero_666/video-channels">Peertube</a></li>
+            <li><a href="https://talk.artsculture.media/@kalimero">Mastodon</a></li>
+        </ul>
+        <p><a href="https://linktr.ee/kalimero">...and more →</a></p>
+        <p>
+             My nickname is @kalimero_666<br>
+             I am Kalimero Von Bülow
+        </p>
+
+        <h3>e-CONOMIX</h3>
+        <ul>
+            <li><a href="https://bookomatic.hstn.me/">Book-O-Matics</a></li>
+            <li><a href="https://ko-fi.com/kalimero_666/">Ko-Fi</a></li>
+            <li><a href="https://opensea.io/kalimero_666/">Opensea</a></li>
+            <li><a href="https://patreon.com/Kalimero666/">Patreon</a></li>
+            <li><a href="https://tipeee.com/kalimero/">Tipeee</a></li>
+            <li><a href="https://kalimero.myspreadshop.fr">Goodies</a></li>
+        </ul>
+        <p><a href="https://linktr.ee/kalimero">...and more →</a></p>
+
+        <p>Check out my Ghost blog !</p>
+        <a href="https://rockghostsrock.digitalpress.blog">
+            Visit my Ghost blog
+            <img src="/icons/rgr.svg" alt="Visit my Ghost blog at rockghostsrock.digitalpress.blog">
+        </a>
+        <a href="https://rockghostsrock.digitalpress.blog">
+            Visit my Ghost blog
+            <img src="/prngrfx.webp" alt="Visit my Ghost blog at rockghostsrock.digitalpress.blog">
+        </a>
+
+        <h2>Showcase</h2>
+        <p>
+            Kalimero is versatile...
+            So be my guesss, feel  free, exxxplore my Whiteborrred Jungle which is a work in progress !
+        </p>
+
+        <a href="https://ko-fi.com/L4L463Q3N">
+            <img src="https://storage.ko-fi.com/cdn/kofi4.png?v=3" alt="Buy Me a Coffee at ko-fi.com">
+        </a>
+
+        <a href="https://kalimero.rocks/">
+            <img src="/_astro/kalimero.4bb08e5a_1eDkgG.png" alt="A screenshot of https://kalimero.rocks/">
+            <h3>kalimero.rocks</h3>
+            <p>https://kalimero.rocks/</p>
+        </a>
+
+        <a href="https://rockghostsrock.digitalpress.blog/">
+            <img src="/_astro/rgr.c1296a4c_2hE9te.png" alt="A screenshot of https://rockghostsrock.digitalpress.blog/">
+            <h3>Rock, Ghost, Rock !</h3>
+            <p>https://rockghostsrock.digitalpress.blog/</p>
+        </a>
+
+        <a href="https://bookomatic.hstn.me/">
+            <img src="/_astro/bookomatics.593b6713_1ahNYv.png" alt="A screenshot of https://bookomatic.hstn.me/">
+            <h3>Book-O-Matics</h3>
+            <p>https://bookomatic.hstn.me/</p>
+        </a>
+
+        <a href="https://xxx19.digitalpress.blog/">
+            <img src="/_astro/prngrfx.481d8546_1TPurS.png" alt="A screenshot of https://xxx19.digitalpress.blog/">
+            <h3>PRNGRFX</h3>
+            <p>https://xxx19.digitalpress.blog/</p>
+        </a>
+
+        <a href="https://yamwhatyam.vercel.app/">
+            <img src="/_astro/yamwhatyam.ca8b4005_Z1r5lLj.png" alt="A screenshot of https://yamwhatyam.netlify.app/">
+            <h3>Yam What Yam</h3>
+            <p>https://yamwhatyam.netlify.app/</p>
+        </a>
+
+        <a href="https://picaboo.netlify.app/">
+            <img src="/_astro/picaboo.e96313ef_Z1Lu8I.png" alt="A screenshot of https://picaboo.netlify.app/">
+            <h3>Picaboo</h3>
+            <p>https://picaboo.netlify.app/</p>
+        </a>
+
+        <p><a href="https://fr.tipeee.com/kalimero">Soutenez KaliMero sur Tipeee</a></p>
+
+        <img src="/_astro/desert.b38c3bea_2vjVO1.jpg" alt="The arizona desert">
+    </main>
+
+    <footer>
+        <ul>
+            <li><a href="https://www.kalimero.rocks">Kalimero's official website</a></li>
+            <li><a href="https://instagram.com/kalimero_666/">Instagram</a></li>
+            <li><a href="https://github.com/kalimerO666/">Github</a></li>
+        </ul>
+    </footer>
+</body>
+</html>            --neon-green-glow: rgba(57, 255, 20, 0.5);
             --neon-pink-glow: rgba(255, 16, 240, 0.5);
         }
 
