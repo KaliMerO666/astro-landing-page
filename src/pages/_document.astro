@@ -5,7 +5,9 @@ const {
   description = 'Landing page rapide, moderne et optimisée avec Astro.',
   lang = 'fr',
 } = Astro.props;
+
 ---
+
 
 <!DOCTYPE html>
 <html lang={lang}>
@@ -21,5 +23,4 @@ const {
 
     <!-- SEO -->
     <meta name="robots" content="index, follow" />
-    <link rel="canonical" href={Astro.url.href} />
-
+    <link rel="canonical" href={canonicalURL} />
