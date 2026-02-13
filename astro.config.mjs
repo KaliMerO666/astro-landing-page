@@ -5,7 +5,7 @@ import compression from 'vite-plugin-compression';
 
 export default defineConfig({
   // URL de ton site (optionnel, mais utile pour Netlify)
-  // site: 'https://ton-domaine.netlify.app',
+  // site: 'https://kalimero.ink',
 
   vite: {
     plugins: [
